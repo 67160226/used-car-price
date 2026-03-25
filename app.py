@@ -10,8 +10,9 @@ st.set_page_config(page_title="Cardekho Price Predictor", page_icon="🏎️", l
 @st.cache_resource
 def load_model_data():
     try:
-        model = joblib.load('model_artifacts/car_price_pipeline.pkl')
-        with open('model_artifacts/model_metadata.json', 'r') as f:
+        # แก้ไข path ให้โหลดไฟล์จากโฟลเดอร์เดียวกันโดยตรง
+        model = joblib.load('car_price_pipeline.pkl')
+        with open('model_metadata.json', 'r') as f:
             metadata = json.load(f)
         return model, metadata
     except Exception as e:
